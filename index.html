@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You 💗</title>
 
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
 body{
     margin:0;
-    font-family:'Comic Sans MS', cursive;
+    font-family:'Quicksand', sans-serif;
     text-align:center;
     background: linear-gradient(135deg,#ffd6ec,#ffe6f5);
     overflow-x:hidden;
 }
 
-/* Bunga animasi */
 .flower{
     position:fixed;
     top:-50px;
     font-size:25px;
-    animation:fall 6s linear infinite;
+    animation:fall linear infinite;
 }
 
 @keyframes fall{
@@ -29,23 +31,31 @@ body{
 
 .box{
     margin-top:80px;
+    padding:20px;
 }
 
 input{
-    padding:10px;
+    padding:12px;
     border-radius:20px;
     border:none;
     text-align:center;
+    width:70%;
+    max-width:250px;
 }
 
 button{
-    padding:10px 20px;
+    padding:12px 20px;
     border:none;
     border-radius:20px;
     background:#ff4da6;
     color:white;
     cursor:pointer;
     margin-top:10px;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#ff1f85;
 }
 
 #main{
@@ -54,7 +64,8 @@ button{
 }
 
 img{
-    width:220px;
+    width:90%;
+    max-width:260px;
     border-radius:20px;
     box-shadow:0 5px 15px rgba(0,0,0,0.2);
     margin-top:20px;
@@ -64,11 +75,12 @@ img{
     display:none;
     margin-top:20px;
     background:white;
-    padding:15px;
-    border-radius:15px;
-    max-width:300px;
+    padding:18px;
+    border-radius:20px;
+    max-width:320px;
     margin-left:auto;
     margin-right:auto;
+    line-height:1.6;
 }
 
 #game{
@@ -87,66 +99,59 @@ img{
     align-items:center;
     font-size:20px;
 }
-
 </style>
 </head>
+
 <body>
 
-<!-- Password Page -->
 <div class="box" id="login">
-    <h2>passwordnya??</h2>
+    <h2>passwordnya?? 💗</h2>
     <input type="password" id="pass" placeholder="Masukin password">
     <br>
     <button onclick="checkPass()">open it</button>
 </div>
 
-<!-- Main Content -->
 <div id="main">
-    <h1>aloo cantikk</h1>
+    <h1>aloo cantikk 🌸</h1>
 
+    <!-- GANTI nama file sesuai repo kamu -->
     <audio id="lagu" src="bestpart.mp3" loop></audio>
-
     <img src="fotodia.jpeg">
 
     <br><br>
 
-    <button onclick="peluk()">hug me please?</button>
+    <button onclick="peluk()">hug me please? 🤗</button>
 
     <div id="longtext">
-    u're my best part and view.
-    like this song, setiap detik bareng kamu tuh bikin happy,
-    bikin dunia rasanya gaa seberat biasanya.
+    you’re my best part and my favorite view.
+    setiap detik bareng kamu tuh bikin happy,
+    bikin dunia rasanya nggak seberat biasanya.
 
-    aku gatau cara nyampein rasa sayang aku ke kamu. 
-    tapi setiap kali aku cerita ke kamu,
-    rasanya kayak semua capee langsung hilang.
+    aku gatau cara nyampein rasa sayang aku ke kamu,
+    tapi tiap aku cerita ke kamu,
+    rasanya kayak semua capek langsung hilang.
 
     kamu bukan cuma cewe aku,
     tapi rumah.
-    tempat aku pulang,
+    tempat aku pulang.
     tempat aku bisa jadi diri sendiri tanpa takut dihakimi.
 
-    aku bersyukur banget bisa kenal kamu,
-    bisa ketawa bareng kamu,
-    bisa saling peluk sama kamu,
+    terima kasih udah sabar,
+    terima kasih udah ngerti,
+    terima kasih udah bertahan.
 
-    terimakasi uda sabar,
-    terimakasi udah ngerti.
-    terimakasi udah bertahan.
-    terimakasi udah jadi bagian paling indah di hidup aku.
-
-    akuu ga janji hidup bakal selalu mudah,
+    aku nggak janji hidup selalu mudah,
     tapi aku janji bakal selalu milih kamu.
-    lagi, lagi dan lagi. 
+    lagi.
+    lagi.
+    dan lagi 💗
     </div>
 
-
-    <!-- Mini Game -->
     <div id="game">
         <h2>Mini Game 💌</h2>
         <p>Klik tombol ini 5 kali buat buka pesan rahasia!</p>
         <div class="game-box">
-            <button onclick="klikGame()">Klik </button>
+            <button onclick="klikGame()">Klik 💗</button>
         </div>
         <p id="hasilGame"></p>
     </div>
@@ -154,26 +159,26 @@ img{
 
 <script>
 
-/* Password */
 function checkPass(){
     let p = document.getElementById("pass").value;
     if(p === "cayel"){
         document.getElementById("login").style.display="none";
         document.getElementById("main").style.display="block";
-        document.getElementById("lagu").play();
+
+        // Lagu diputar setelah user interaction (biar HP nggak blok)
+        document.getElementById("lagu").play().catch(()=>{});
+
         bunga();
     } else{
         alert("Salahhh 😝");
     }
 }
 
-/* Peluk */
 function peluk(){
     document.getElementById("longtext").style.display="block";
     document.getElementById("game").style.display="block";
 }
 
-/* Mini Game */
 let hitung = 0;
 
 function klikGame(){
@@ -183,11 +188,10 @@ function klikGame(){
         "Kurang " + (5-hitung) + " kali lagi 💗";
     } else{
         document.getElementById("hasilGame").innerHTML =
-        "🎉 Kamu menang! Pesan rahasia: CACA CALON PACAR AKU!!!!!";
+        "🎉 Kamu menang! Pesan rahasia: CACA CALON PACAR AKU!!!!! 💕";
     }
 }
 
-/* Bunga jatuh */
 function bunga(){
     setInterval(()=>{
         let f = document.createElement("div");
